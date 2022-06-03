@@ -9,16 +9,16 @@ public class rest {
             int b = sc.nextInt();
             arr[i] = b;
         }
+        boolean[] rest = new boolean[42];
         for (int i = 0; i < 10; i++) {
-            try {
-                for (int j = 0; j < 10; j++) {
-                    if (arr[i] % 42 != arr[j] % 42) {
-                        a++;
-                    }
-                }
+            for (int j = 0; j < 42; j++)
+            if ((arr[i] % 42) == j) {
+                rest[j] = true;
             }
-            catch (ArrayIndexOutOfBoundsException e) {
-                break;
+        }
+        for (int i = 0; i < rest.length; i++) {
+            if (rest[i] == true) {
+                a++;
             }
         }
         System.out.println(a);
